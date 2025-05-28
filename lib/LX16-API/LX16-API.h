@@ -396,6 +396,7 @@ int LobotSerialLitTrame (byte *reponse)
       }         // fin de compteur == longueur + 3 ?
     }           // fin de trameCommencee
   }             // fin du while BusLX16.available()
+  return -3; // Bus pas disponible 
 }
 
 int gereReponse(byte *buf, byte nbOctets)

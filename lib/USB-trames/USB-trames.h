@@ -196,15 +196,19 @@ void ecrit(byte pos, byte nbcar, uint16_t val)
     case 4:
       c = (val / 1000) + '0';
       tamponEmis[pos++] = c;
+      break;
     case 3 :
       c = ((val % 1000) / 100) +'0';
       tamponEmis[pos++] = c;
+      break;
     case 2 :
       c = ((val % 100) / 10) +'0';
       tamponEmis[pos++] = c;
+      break;
     case 1 : 
       c = (val % 10) + '0';
       tamponEmis[pos++] = c;
+      break;
   }
 }
 
