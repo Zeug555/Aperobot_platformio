@@ -66,7 +66,7 @@
 #define NUCLEO64_BUSLX16      // indique que l'on travaille sur L476RG et carte rouge
 // #define NUCLEO64_LS126     // indique que l'on travaille sur L476RG et carte verte
 // #define NUCLEO32_BUSLX16   // indique que l'on travaille sur L432KC et carte rouge
-// #define NUCLEO32_LS126     // indique que l'on travaille sur L432KC et carte verte
+//#define NUCLEO32_LS126     // indique que l'on travaille sur L432KC et carte verte
 #define NUCLEO64_BUSRS485     // indique que l'on emploie les PAP sur L476RG
 //***  pour la partie SERVOMOTEURS
 //#include <HardwareSerial.h>    //!Doublon
@@ -80,11 +80,11 @@ extern HardwareSerial BusLX16;
 #define SENS        PB_12           // broche employée pour activer le sens TX
 #define SENSL       PB_2            // idem pour activer le sens RX
 #elif defined(NUCLEO32_LS126)       // pour emploi sur L432KC avec carte verte
-HardwareSerial BusLX16(D2, D10);    // voie série servomoteurs LX16 sur Nucléo 32
+extern HardwareSerial BusLX16;    // voie série servomoteurs LX16 sur Nucléo 32
 #define SENS        D3              // broche employée pour activer le sens TX
 #define SENSL       D4              // idem pour acxtiver le sens RX
 #elif defined(NUCLEO32_BUSLX16)     // pour emploi sur L432KC avec carte rouge
-HardwareSerial BusLX16(D0, D1);
+extern HardwareSerial BusLX16;
 #define SENS2       D3
 #endif
 

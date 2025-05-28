@@ -486,6 +486,7 @@ bool testCrc()
     crc += tamponRecep[num];      // on ajoute tous les caractères
   }
   crc &= 0xFF;                    // on écrète à 1 octet
+  crc |= 0x80;                    // Forçage en non ascii 
   if (DEBUGCRC)                   // afficher le crc recu, le crc calculé 
     Serial.printf ("crc recu : %d | calculé : %d \n", tamponRecep[numChar-1], crc);
   return (crc == tamponRecep[numChar-1]);   // on renvoie le résultat de la comparaison

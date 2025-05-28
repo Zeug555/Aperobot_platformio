@@ -12,7 +12,7 @@ HardwareSerial BusLX16(PC_5, PC_4);
 #elif defined(NUCLEO64_LS126)           // cas de APEROBOT
 HardwareSerial BusLX16(PC_5, PC_4);    // (Rxpin, Txpin) du bus servomoteurs
 #elif defined(NUCLEO32_LS126)
-HardwareSerial BusLX16(D0std, D1);
+HardwareSerial BusLX16(D0, D1);
 #elif defined(NUCLEO32_BUSLX16) 
 HardwareSerial BusLX16(D0, D1);   // voie série servomoteurs LX16 sur Nucléo 32 
 #endif
