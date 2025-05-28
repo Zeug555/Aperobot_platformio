@@ -430,6 +430,7 @@ void set_interpolation(int8_t moteur_index, uint8_t enable) {
 }
 
 // ! Définit le baudrate (voir tableau de correspondance dans la doc)
+
 // * baud = 1 (9600), 2 (19200), ..., 7 (256000)
 void set_baudrate(int8_t moteur_index, uint8_t baud_code) {
     Moteur moteur;

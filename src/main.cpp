@@ -76,7 +76,11 @@ void loop()
       afficheTrameUtile();  // on affiche les lettres utiles de la trame.
     }
     if (testReception())
-      traiteReception();      // exécution des commandes
+      while(1)
+      {
+        traiteReception();      // exécution des commandes
+      }
+
   }
 
   // ici on peut simuler les IT au rythmeOtos par millis() 

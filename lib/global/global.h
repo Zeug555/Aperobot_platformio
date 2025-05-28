@@ -93,7 +93,7 @@ extern HardwareSerial BusLX16;
 #if defined(NUCLEO64_BUSRS485)      
 //HardwareSerial BusPAP(PA12, PA11);    // voie série RS485 vers MKS Servo42D 
 extern HardwareSerial BusPAP;
-#define E_R         D4                // sens du dialogue RS485 
+#define E_R         D7                // sens du dialogue RS485 
 #define PAP         true              // indiquera que les moteurs PAP sont commandés
 #else
 #define PAP         false             // indiquera que les moteurs PAP sont absents
