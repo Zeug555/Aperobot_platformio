@@ -35,17 +35,19 @@
 //*** ASPECT COMMUNIICATION voie USB vers la RPI4
 
 //*** CONSTANTES ASCII des trames
-/*
+
 #define ACK         6
 #define NAK         21      // 0x15
 #define STX         2
 #define ETX         3
-*/
+
 // pour la partie debug des commandes via le moniteur arduino
+/*
 #define ACK         '!'
 #define NAK         '?'      
 #define STX         '/'
 #define ETX         '\\'
+*/
 bool ordreRecu;             // indique qu'une trame est recue, la traiter
 uint8_t numChar;            // nombre de caractères déja reçus par l'USB
 char tamponRecep[30];       // tampon de réception depuis la RPI4 (la + longue = Steppers : 16)
@@ -477,12 +479,15 @@ bool testPos()
 
 bool testCrc()
 {     // retourne vrai si le tampon reçu a un crc qui correspond
-  byte crc = 0;
-  for (char num = 1; num < numChar - 2; num++) // on explore les caractères utiles
+  uint32_t crc = 0;
+  char num = 1;
+  for (num; num < numChar - 1; num++) // on explore les caractères utiles
+  {
     crc += tamponRecep[num];      // on ajoute tous les caractères
+  }
   crc &= 0xFF;                    // on écrète à 1 octet
   if (DEBUGCRC)                   // afficher le crc recu, le crc calculé 
-    Serial.printf ("crc recu : %d | calculé : %d \n", crc, tamponRecep[numChar-1]);
+    Serial.printf ("crc recu : %d | calculé : %d \n", tamponRecep[numChar-1], crc);
   return (crc == tamponRecep[numChar-1]);   // on renvoie le résultat de la comparaison
 }
 

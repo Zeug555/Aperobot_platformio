@@ -58,20 +58,23 @@ void setup()
   Serial.println (" Init terminée !\n");
 }
 
-void loop()
+void loopTest()
 {
   testReceptionOrdre();
   // testReceptionSequence();
   // testAscenceur();
 }
 
-void loopFinal() 
+void loop() 
 { 
   // boucle de gestion des commandes avec la RPI
   lit_USB();
   if (ordreRecu)
   {
-    if (DEBUGUSB)   afficheTrameUtile();  // on affiche les lettres utiles de la trame.
+    if (DEBUGUSB)  
+    {
+      afficheTrameUtile();  // on affiche les lettres utiles de la trame.
+    }
     if (testReception())
       traiteReception();      // exécution des commandes
   }
