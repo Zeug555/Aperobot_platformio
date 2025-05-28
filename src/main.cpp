@@ -51,7 +51,9 @@ void setup()
   //--- Aspects moteurs PAP (issu du main() de Valentin)
   init_moteurs();
   affectations_moteurs();
-  // arret_moteur(-1);         // envoi arret des moteurs par broadcast
+  //arret_moteur(-1);         // envoi arret des moteurs par broadcast
+  
+  pinMode(E_R, OUTPUT);
   
   ordreRecu = false;
   seqOk = seqPasFinie = false;
@@ -78,6 +80,8 @@ void loop()
     if (testReception())
         traiteReception();      // exécution des commandes
   }
+  //delay(5000);
+  //arret_moteur(mot_droit);
 
   // ici on peut simuler les IT au rythmeOtos par millis() 
 /*
