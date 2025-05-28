@@ -484,11 +484,30 @@ bool testCrc()
   for (num; num < numChar - 1; num++) // on explore les caractères utiles
   {
     crc += tamponRecep[num];      // on ajoute tous les caractères
+    if(DEBUGCRC) {
+      Serial.print("index de la valeur");
+      Serial.println((int) num);
+      Serial.print("crc accumulé");
+      Serial.println(crc, HEX);
+    }
   }
-  crc &= 0xFF;                    // on écrète à 1 octet
+  if(DEBUGCRC)
+  {
+    Serial.print("crc calculé");
+    Serial.println(crc); 
+  }
+  crc &= 0xFF;                    // on écrète à 1 octet{}
+  if(DEBUGCRC){
+    Serial.print("crc après and");
+    Serial.println(crc);
+  }
   crc |= 0x80;                    // Forçage en non ascii 
-  if (DEBUGCRC)                   // afficher le crc recu, le crc calculé 
+  if(DEBUGCRC)
+  {
+    Serial.print("crc après or");
+    Serial.println(crc);
     Serial.printf ("crc recu : %d | calculé : %d \n", tamponRecep[numChar-1], crc);
+  }
   return (crc == tamponRecep[numChar-1]);   // on renvoie le résultat de la comparaison
 }
 
