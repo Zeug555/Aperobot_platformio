@@ -102,7 +102,7 @@ void initSens()
   pinMode (SENS2, OUTPUT);
 #endif
 #if defined (NUCLEO64_LS126)
-  pinMode (SENS2, OUTPUT);
+  pinMode (SENS, OUTPUT);
 #endif
 }
 
@@ -177,6 +177,7 @@ void LobotSerialServoMove(uint8_t id, int16_t position, uint16_t time)
   buf[7] = GET_LOW_BYTE(time);
   buf[8] = GET_HIGH_BYTE(time);
   buf[9] = LobotCheckSum(buf);
+
   if (DEBUGSM)
   {
     Serial.print("LOBOT SERVO MOVE TO POSITION : ");  // affichage de la fonction

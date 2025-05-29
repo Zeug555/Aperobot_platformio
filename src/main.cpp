@@ -54,6 +54,8 @@ void setup()
   //arret_moteur(-1);         // envoi arret des moteurs par broadcast
   
   pinMode(E_R, OUTPUT);
+  pinMode(SENS, OUTPUT);
+  pinMode(SENSL, OUTPUT);
   
   ordreRecu = false;
   seqOk = seqPasFinie = false;
@@ -62,9 +64,10 @@ void setup()
 
 void loopTest()
 {
-  testReceptionOrdre();
-  // testReceptionSequence();
-  // testAscenceur();
+  LobotSerialServoMove(8, 100, 500);
+  delay(2000);
+  LobotSerialServoMove(8,500, 500);
+  delay(2000);
 }
 
 void loop() 
@@ -78,7 +81,7 @@ void loop()
       afficheTrameUtile();  // on affiche les lettres utiles de la trame.
     }
     if (testReception())
-        traiteReception();      // exécution des commandes
+      traiteReception();      // exécution des commandes
   }
   //delay(5000);
   //arret_moteur(mot_droit);

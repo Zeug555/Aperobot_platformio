@@ -456,6 +456,8 @@ uint16_t litPos(byte adrServo)
 void poseServo (byte code, byte pos)
 {   // cette fonction met le servomoteur 'code' dans la position associée au code 'pos'
   // maintenant qu'on connaît la valeur angulaire, on pilote vraiment ce servo
+  Serial.println("Je vais à tant de degrés : ");
+  Serial.println(Positions[code][pos]);
   LobotSerialServoMove(Acteurs[code].adr, Positions[code][pos], Acteurs[code].temps);
   Acteurs[code].pos = Positions[code][pos];
   Acteurs[code].codePos = pos;

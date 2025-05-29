@@ -525,12 +525,21 @@ bool testOrgane()
 bool testPos()
 { // trouve la position définie dans la commande
   bool ok = false;
-  byte pos = tamponRecep[3] - '0';
+  pos = tamponRecep[3] - '0';
+  if (DEBUGSM)
+  {
+    Serial.print("Position demandée : ");
+    Serial.println(pos);
+  }
   if (Acteurs[actionneur].nbPos >= pos) // si cet actionneur dispose de ce numéro de position
   {
     ok = true;
     if (DEBUGUSB)
       Serial.printf(" en code position %d \n", pos);
+  }
+  if (DEBUGSM){
+    Serial.print("is ok niveau position ? : ");
+    Serial.println((int) ok);
   }
   return (ok);
 }

@@ -63,8 +63,8 @@
 #define SCLPIN      PB_13
 
 //--- Aspect CARTES INTERFACES
-#define NUCLEO64_BUSLX16      // indique que l'on travaille sur L476RG et carte rouge
-// #define NUCLEO64_LS126     // indique que l'on travaille sur L476RG et carte verte
+// #define NUCLEO64_BUSLX16      // indique que l'on travaille sur L476RG et carte rouge
+#define NUCLEO64_LS126     // indique que l'on travaille sur L476RG et carte verte
 // #define NUCLEO32_BUSLX16   // indique que l'on travaille sur L432KC et carte rouge
 //#define NUCLEO32_LS126     // indique que l'on travaille sur L432KC et carte verte
 #define NUCLEO64_BUSRS485     // indique que l'on emploie les PAP sur L476RG
